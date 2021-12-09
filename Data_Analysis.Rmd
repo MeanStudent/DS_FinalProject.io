@@ -1135,7 +1135,7 @@ ggplot(yrbss_state_tidy_additional,
   theme(
     axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1),
     legend.position = "none") +
-  labs(title="smoke start age",x="drug use frequency"))
+  labs(title="smoke start age",x="drug use frequency")
 ```
 
 ### 15.Alcohol initial age
@@ -1209,7 +1209,7 @@ density_plot=
   geom_vline(data=BMI, aes(xintercept=mean(bmi), color=sex),
              linetype="dashed") + 
   facet_grid(. ~ drug_use_freq) +
-  labs(title = "density plot for BMI",x="drug use frequency"))
+  labs(title = "density plot for BMI",x="drug use frequency")
 
 one.way = 
   aov (bmi~drug_use_freq, data = BMI)

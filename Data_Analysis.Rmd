@@ -17,7 +17,8 @@ library(kableExtra)
 knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
-  echo = FALSE
+  echo = FALSE,
+  fig.width = 10
 )
 
 theme_set(theme_minimal() + theme(legend.position = "bottom"))

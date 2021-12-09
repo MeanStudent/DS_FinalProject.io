@@ -7,7 +7,7 @@ output:
     code_folding: hide
 ---
 
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 library(survey)
 library(viridis)
@@ -96,7 +96,7 @@ yrbss_state_tidy_additional = read_csv("data/yrbss_state_tidy_additional.csv")
 ```
 
 
-This data analysis uses the resulted data set cleaned by the processing described in data analysis part of [Data]("3,Data Description.html"). According to our motivation, we are interested the relationship between drug use and youth behaviors. In this analysis, we will explore the association between drug use status and each health behavior variables.
+This data analysis uses the resulted data set cleaned by the processing described in data analysis part of [Data]("Data_Description.html"). According to our motivation, we are interested the relationship between drug use and youth behaviors. In this analysis, we will explore the association between drug use status and each health behavior variables.
 
 There are three kinds of health-related variables and we will use different methods to analyze: 
  - Bi-level categorical variables: drunk driving, carrying weapon, suicide attempt, physical fight, quit-smoking, early-age sexual intercourse, heavy screening usage, enough sleeping
@@ -137,6 +137,8 @@ For bi-level and multi-level categorical variables, we test the independence of 
 
 $$
 H_0:\text{There is no association between drug use and the health-related variable of interest}
+$$
+$$
 H_1:\text{There is an association between drug use and the health-related variable of interest}
 $$
 Other than the chi-square test, we also use the Cramer's V Effect Size to measure the magnitude of the association. It is measure by the manner:
@@ -153,12 +155,13 @@ tibble(
   small_effect = c(0.10, 0.07, 0.06, 0.05, 0.04),
   medium_effect = c(0.3, 0.21, 0.17, 0.15, 0.13),
   large_effect = c(0.5, 0.35, 0.29, 0.25, 0.22)
-) %>% 
-  knitr::kable()
+)
 ```
 
 
 Besides the crude analysis which test the association for all observations in the data set, we also perform a stratified analysis over grade, gender and race to investigate the interaction or confounding effect of these demographic variable on the crude association. 
+
+## Bi-level
 
 ### 1. Drunk Driving
 
@@ -237,6 +240,8 @@ test_of_association(input_name = "text_driving", table_name = "Table 3: Drug Use
 
 From Table 3, we can see that not all p-values are significant enough to conclude an association between drug_use status and cell phone use while driving. Since younger children have much less chance of driving than older children, it is make sense that the association is heavily impacted by the grade. However, it also shows no association between drug_use status and cell phone use while driving among Black or African American and all other races. In a conservative perspective, we would conclude that the association between drug_use status and cell phone use while driving is weak, especially among Black or African American and all other races students.
 
+Overall:
+
 ```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq) %>% 
@@ -248,8 +253,11 @@ yrbss_state_tidy_additional %>%
   labs(y = "Proportion of Cell Phone Use During Driving",
        x = "Drug Use Status",
        title = "Plot 2: Proportion of Cell Phone Use During Driving Among Drug Use Status")
+```
 
+Stratified Analysis:
 
+```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq, grade) %>% 
   summarize(
@@ -296,6 +304,8 @@ test_of_association(input_name = "carrying_weapon", table_name = "Table 4: Drug 
 
 From Table 4, we can see that all p-values are significantly small to conclude that there is association between drug use status and carrying weapon. The overall effect size is around 0.26 while the lowest effect size is greater than 0.2, so we are confident to say that it is an medium association. However, the large difference of effect size among gender and race implies the interaction effects of gender and race on the association. The association between drug use status and carrying weapon is stronger among male compared to female; the association between drug use status and carrying weapon is strongest among Black or African American and weakest among White.
 
+Overall:
+
 ```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq) %>% 
@@ -307,8 +317,11 @@ yrbss_state_tidy_additional %>%
   labs(y = "Proportion of Carrying Weapon",
        x = "Drug Use Status",
        title = "Plot 3: Proportion of Carrying Weapon Among Drug Use Status")
+```
 
+Stratified Analysis:
 
+```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq, grade) %>% 
   summarize(
@@ -355,6 +368,8 @@ test_of_association(input_name = "suicide_attempt", table_name = "Table 5: Drug 
 
 From Table 5, we can see that all p-values are small enough, so we could reject the null hypothesis that there is association between drug use status and suicide attempt. The overall effect size is around 0.33 while the lowest effect size is greater than 0.21, so the association is moderately strong. The interaction effect of race in the association is detected by the difference of effect size among different races. The association is strongest for all other races while it is weakest for Black or African American.
 
+Overall:
+
 ```{r}
 yrbss_state_tidy_additional %>%
   group_by(drug_use_freq) %>% 
@@ -366,7 +381,11 @@ yrbss_state_tidy_additional %>%
   labs(y = "Proportion of Suicide Attempt",
        x = "Drug Use Status",
        title = "Plot 4: Proportion of Suicide Attempt Among Drug Use Status")
+```
 
+Stratified Analysis:
+
+```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq, grade) %>% 
   summarize(
@@ -414,6 +433,7 @@ test_of_association(yrbss_state_tidy_quit_smoke, "quit_smoke", "Table 6: Drug Us
 
 For quit smoking, we should focus on students who smoke so the number of non-smokers won't bias our results. After filtering out the nonsmokers, the resulted table is in Table 6. Some p-values are not significantly small enough to conclude the association. The overall effect size is around 0.08 and the difference of effect size among grades and among races are significantly large, so the confounding and interaction effects heavily impacted the analysis of association. We would conclude that there is no association between drug use status and quit smoking.   
 
+Overall:
 
 ```{r}
 yrbss_state_tidy_quit_smoke %>%
@@ -426,7 +446,11 @@ yrbss_state_tidy_quit_smoke %>%
   labs(y = "Proportion of Quit Smoking",
        x = "Drug Use Status",
        title = "Plot 5: Proportion of Quit Smoking Among Drug Use Status")
-  
+```
+
+Stratified Analysis:
+
+```{r}
 yrbss_state_tidy_quit_smoke %>% 
   group_by(drug_use_freq, grade) %>% 
   summarize(
@@ -472,6 +496,8 @@ test_of_association(input_name = "physical_fight", table_name = "Table 7: Drug U
 
 From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, it is the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible. 
 
+Overall:
+
 ```{r}
 yrbss_state_tidy_additional %>%
   group_by(drug_use_freq) %>% 
@@ -483,8 +509,11 @@ yrbss_state_tidy_additional %>%
   labs(y = "Proportion of Physical Fight",
        x = "Drug Use Status",
        title = "Plot 6: Proportion of Physical Fight Among Drug Use Status")
+```
 
+Stratified Analysis:
 
+```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq, grade) %>% 
   summarize(
@@ -531,6 +560,8 @@ test_of_association(input_name = "early_sex", table_name = "Table 8: Drug Use St
 ```
 From Table 8, all p-value are significantly small and the effect size are around 0.4, it shows that the association between drug use status and early age sex is strong. The effect size over each stratum is close to each other, so the interaction effect is negligible. 
 
+Overall:
+
 ```{r}
 yrbss_state_tidy_additional %>%
   group_by(drug_use_freq) %>% 
@@ -542,8 +573,11 @@ yrbss_state_tidy_additional %>%
   labs(y = "Proportion of Early-Age Sexual Intercourse",
        x = "Drug Use Status",
        title = "Plot 7: Proportion of Early-Age Sexual Intercourse Among Drug Use Status")
+```
 
+Stratified Analysis:
 
+```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq, grade) %>% 
   summarize(
@@ -588,26 +622,11 @@ Hispanic race has higher proportion of having early age sex when they used heavy
 ### 8. Screening Use
 
 ```{r}
-yrbss_state_tidy_additional %>% 
-  group_by(drug_use_freq, screening_use) %>% 
-  count() %>% 
-  group_by(drug_use_freq) %>% 
-  mutate(
-    prop = n/sum(n)
-  ) %>% 
-  ggplot(aes(x = screening_use, y = prop)) +
-  geom_bar(stat = "identity") +
-  geom_smooth(se = FALSE) +
-  facet_grid(.~drug_use_freq)
-```
-
-
-```{r}
 test_of_association(input_name = "heavy_screen_use", table_name = "Table 9: Drug Use Status vs Heavy Screening Use")
 ```
 From Table 9, p-value is not significantly small and effect size is small, implying that there is not a strong association between screening use and drug use frequency. 
 
-
+Overall:
 ```{r}
 yrbss_state_tidy_additional %>%
   group_by(drug_use_freq) %>% 
@@ -619,8 +638,11 @@ yrbss_state_tidy_additional %>%
   labs(y = "Proportion of Heavy Screening Use",
        x = "Drug Use Status",
        title = "Plot 8: Proportion of Heavy Screening Use Among Drug Use Status")
+```
 
+Stratified Analysis:
 
+```{r}
 yrbss_state_tidy_additional %>% 
   group_by(drug_use_freq, grade) %>% 
   summarize(
@@ -683,6 +705,7 @@ test_of_association(input_name = "enough_sleep", table_name = "Table 10: Drug Us
 ```
 From Table 10, we can see that the overall p-value is significantly small. However, the effect size is around 0.1, suggesting the association is not that strong. 
 
+Overall:
 
 ```{r}
 yrbss_state_tidy_additional %>%
@@ -695,8 +718,11 @@ yrbss_state_tidy_additional %>%
   labs(y = "Proportion of Enough Sleeping",
        x = "Drug Use Status",
        title = "Plot 9: Proportion of Enough Sleeping Among Drug Use Status")
+```
 
+Stratified Analysis:
 
+```{r}
 yrbss_state_tidy_additional %>% 
   mutate(grade = ifelse(is.na(grade), "Missing", as.character(grade))) %>% 
   group_by(drug_use_freq, grade) %>% 
@@ -735,6 +761,7 @@ yrbss_state_tidy_additional %>%
 ```
 The "enough sleeping" plots shows that heavy dose subjects tend to have least proportions of having enough sleep in all grades and races. Male subjects tend to have more enough sleeping for no drug and use light dose, whereas they tend to have less enough sleeping time when use heavy dose of drug. It infers an association between sleeping time and drug use frequency. 
 
+## Multi-level
 
 ### 10. Smoking Status
 
@@ -1041,9 +1068,10 @@ yrbss_state_tidy_additional_grades_school %>%
 
 With the increase of drug use, the proportion of Mostly A's decreases, the proportion of Mostly B's has a little change, and the proportion of both mostly C's and below C's increase. The trend is particularly significant among 11th grade compared to other grades, and among all other races compared with White, Black or African American, and Hispanic/Latino.
 
-
+## Continuous Variable
 
 ### 14. Smoke initial age
+
 ```{r}
 drug1_smoke =
   yrbss_state_tidy_additional %>%
@@ -1089,7 +1117,7 @@ ggplot(yrbss_state_tidy_additional,
 ```
 
 ### 15.Alcohol initial age
--  
+
 ```{r}
 #function for plotting first alcohol_age
 drug1_alcohol=
@@ -1168,66 +1196,3 @@ summary(one.way)
   More heavy dose subjects started to smoke when they were 9 to 10 and 11 to 12 years old compared to no drug use subjects and light dose drug use subjects. For those who used light dose drug, highest percentage of them started to smoke when they were 13 or 14 years old. For those who used heavy dose drug, most of them started to smoke when they were 15 or 16 years old. It shows that heavy dose subjects start to smoke earlier.
   Similar things can be seen in drinking alcohol start age. More heavy dose subjects started to drink alcohol when they were 8 years old or younger and 11 or 12 years old compared to no drug use subjects and light dose drug use subjects. For no drug use and light dose drug use subjects, most of them started to drink alcohol when they were 15 or 16 years old. For heavy dose drug use subjects, most of them started to drink alcohol earlier at 13 or 14 years old. It shows that heavy dose subjects also start to drink alcohol earlier.
   Density plots of BMI are all right-skewed, which means that the mean is greater than the median. Highest percentage of observations fall in 20-30 bmi. The box-plot shows that medians for three dose usgae groups are similar. In addition, one-way anova table implies that there is not a significant difference of BMI among three different drug use frequency groups.
-
-
-
-## Logistic regression
-
-```{r}
-
-library(glmnet)
-
-yrbss_state_tidy_glm <- 
-  yrbss_state_tidy_additional %>% 
-  mutate(drug_use = ifelse(drug_use_freq == "No Drug Use", 0, 1))
-
-
-y <- yrbss_state_tidy_glm %>% pull(drug_use)
-x <- model.matrix(drug_use ~ grade + sex + race4 + drunk_driving + drunk_driving : grade + drunk_driving : sex + drunk_driving : race4 + carrying_weapon + carrying_weapon : race4 + carrying_weapon : sex + + suicide_attempt + suicide_attempt : race4 + physical_fight + early_sex + binge_drinking + smoking_status + seat_belt + grades_school + sleeping_time + smoking_status:race4 + binge_drinking:race4 + seat_belt:race4 + 
-    grades_school:race4 + grades_school:grade + smoke_age + alcohol_age, data = yrbss_state_tidy_glm)[, -1]
-lambda = 10^(seq(3, -2, -0.1))
-
-lasso_cv =
-  cv.glmnet(x, y, lambda = lambda)
-
-lambda_opt = lasso_cv$lambda.min
-
-
-
-```
-
-Cross_Validation
-
-```{r eval=FALSE}
-library(modelr)
-cv_df <- crossv_mc(yrbss_state_tidy_glm, 100, id = "group_id") %>% 
-  mutate(
-    train = map(train, as_tibble),
-    test = map(test, as_tibble)
-  )
-
-cv_results <- cv_df %>% mutate(
-  model_fit_AIC = map(.x = train, ~glm(drug_use ~ grade + sex + race4 + drunk_driving + 
-    carrying_weapon + suicide_attempt + physical_fight + early_sex + 
-    binge_drinking + smoking_status + grades_school + sleeping_time + 
-    smoke_age + alcohol_age + grade:drunk_driving + sex:drunk_driving + 
-    race4:carrying_weapon, data = .x)),
-  model_fit_BIC = map(.x = train, ~ glm(drug_use ~ grade + sex + race4 + suicide_attempt + 
-    physical_fight + early_sex + smoking_status + binge_drinking + 
-    grades_school + smoke_age + alcohol_age, data = .x)),
-  model_fit_lasso = map(.x = train, ~glm(drug_use ~ grade + race4 + drunk_driving + suicide_attempt + physical_fight + early_sex + smoking_status + binge_drinking + grades_school + seat_belt + sleeping_time + race4:grades_school + smoke_age + alcohol_age, data = .x))
-) %>% 
-  mutate(
-    rmse_AIC = map2_dbl(.x = model_fit_AIC, .y = test, ~rmse(model = .x, data = .y)),
-    rmse_BIC = map2_dbl(.x = model_fit_BIC, .y = test, ~rmse(model = .x, data = .y)),
-    rmse_lasso = map2_dbl(.x = model_fit_lasso, .y = test, ~rmse(model = .x, data = .y))
-  )
-
-cv_results %>% select(group_id, starts_with("rmse_")) %>% 
-  pivot_longer(cols = rmse_AIC:rmse_lasso, names_to = "model_type", values_to = "rmse", names_prefix = "rmse_") %>% 
-  ggplot(aes(x = rmse, fill = model_type)) +
-  geom_density(alpha = 0.3)
-
-```
-
-

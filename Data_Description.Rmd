@@ -77,14 +77,6 @@ yrbss_state_tidy <-
 
 Firstly, we are interested in the drug use in each states, so we use our cleaned data according to states to do the following 5 topics of research. Each of the 5 researches are focusing on our interested topics across all the states.
 
-#### The Overall Drug Use
-
-#### Drug Use Proportion for Each Race
-
-#### Drug Use Proportion of Different Age and Gender
-
-#### Marijuana and Other Durgs Use Proportion
-
 Marijuana is the most abused drug, we are interested in the marijuana drug use proportion, as well as all other drugs use proportion across the states. The analysis plot is in the dashboard. According to the plot, we found that Arizona has the largest proportion of marijuana use among the youth, which is 52%. Arizona also has the highest other drug use proportion of 32%. We could also found in the plot that the states having high proportion of marijuana use are those in which marijuana use is legal, whereas the states which make it illegal have low rate of marijuana such as Utah, Iowa, and Nebraska.
 
 #### The Average Starting Age of Marijuana

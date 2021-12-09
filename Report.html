@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Final Report</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="Data_Description.html">Data</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Data_exploration.html">Data Exploration</a>
+    </li>
+    <li>
+      <a href="Data_Analysis.html">Data Analysis</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Interactive apps
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://meanstudent.shinyapps.io/yrbss_overview_shinyapp/">Drug Use Overview</a>
+    </li>
+    <li>
+      <a href="https://meanstudent.shinyapps.io/new_shiny/">Drug Use Proportion &amp; Marijuana Start Age</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Related Work
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">1</li>
+    <li class="dropdown-header">2</li>
+    <li class="dropdown-header">3</li>
+  </ul>
+</li>
+<li>
+  <a href="Report.html">Report</a>
+</li>
+<li class="dropdown-header">about</li>
+<li>
+  <a href="mailto:&lt;kh3074@cumc.columbia.edu&gt;">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/ryan2417/drug_abuse_among_youth.github.io.git">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Final Report</h1>
+
+</div>
+
+
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<div id="primary-goals" class="section level2">
+<h2>Primary goals</h2>
+<p>According to WHO, the United States has the highest level of illegal drug use compared with other countries in 2019. The two most commonly used illicit drugs are marijuana and opioids. Overall drug use was also reported to be on the rise. The NSDUH survey in 2019 indicated that 20.8% of people aged 12 and over had illicit drug use, which is a notable increase from 2015 (Buddy, T. 2021) . Illegal drug abuse is more important to be prevented among the youth, since drugs are more harmful to them, such as affecting the growth of brains, impairing memories and concentration. Thus, we would like to study the drug use abuse among youth to detect some patterns, which would be useful for policymakers to develop strategies with explicit targets, and thus achieve the most effective results.</p>
+</div>
+<div id="secondary-goals" class="section level2">
+<h2>Secondary goals</h2>
+<p>Our next step was to examine which patterns are important for the policymakers to make problem-oriented strategies. The most conspicuous one is the drug use by the state. We also expect finding the patterns of different drug use to be helpful, such as average age, race, and gender of illegal drug use by the drug. Moreover, we learned an example of a case-control study from the Epidemiology course illustrating that drug use might be associated with other behaviors affecting personal health, so we would also develop our study to explore patterns in this area.</p>
+</div>
+</div>
+<div id="related-work" class="section level1">
+<h1>Related Work</h1>
+</div>
+<div id="initial-questions" class="section level1">
+<h1>Initial Questions</h1>
+<p>1, What is the over all distribution of drug use in the United States?</p>
+<p>2, Which state in the United States has the largest number of drug users?</p>
+<p>3, What is the difference between male and female drug use？</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>What is the difference of marijuana and other drug use proportion between different states?</p></li>
+<li><p>What is the difference of marijuana start age between different states?</p></li>
+<li><p>Is there any difference of effects of drugs on health-related behaviors among different levels of drug use frequency?</p></li>
+<li><p>Do light dose drug use subjects tend to develop more health-related behaviors?</p></li>
+<li><p>Do heavy dose drug use subjects tend to develop more risky behaviors? For example, we expect heavy dose subjects bring weapons to school, have suicide attempt, use tobacco, have binge drinking, have overweight.</p></li>
+<li><p>Is there any drug use difference on sex, grades, and race?</p></li>
+<li><p>Can we anticipate the probability of subjects using drugs based on their health and risky behaviors?</p></li>
+</ol>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<div id="drug-use-overview" class="section level2">
+<h2>Drug use overview</h2>
+<ul>
+<li>In the <a href="Data_exploration.html">over-view plot</a> we found that the drug use proportion varies hugely among states and states. And it seems no geographical relationship between drug use proportion and states. Light drug use distribution and heavy drug use distribution do have a strong relationship.</li>
+<li>Arizona State has the most proportion of taking drugs both in the heavy dose and light dose which is 0.249789 and 0.3140928, on the contrary, UT state has the least proportion of people who take drugs, the proportion of students who haven’t taken drug yet is 0.7596792.</li>
+<li>Marijuana is the most popular drug overall drugs and the number of marijuana users is even more than the sum of other drugs users.</li>
+<li>Top 3 popular drugs are marijuana, inhale and ecstasy.</li>
+</ul>
+</div>
+<div id="drug-proportion-in-each-race" class="section level2">
+<h2>Drug proportion in each race</h2>
+<ul>
+<li>Marijuana use in each race doesn’t have a big difference, however, white people tend to have less proportion of having ecstasy and inhaling drugs than other races.</li>
+</ul>
+</div>
+<div id="drug-use-in-different-age" class="section level2">
+<h2>Drug use in different age</h2>
+<ul>
+<li>Of all the light dose drug users, females have a greater proportion than males. On the other hand, of all the heavy-dose drug users, males have a greater proportion than females. This means males have a higher chance than females to transfer into heavy-dose drug users.</li>
+</ul>
+</div>
+<div id="marijuana-and-other-drug-use-proportion" class="section level2">
+<h2>Marijuana and Other Drug Use Proportion</h2>
+<p>Marijuana is the most abused drug. Most of the states has the overall drug use proportion greater than 50%. We found that Arizona has the largest proportion of marijuana use among the youth. Arizona also has the highest other drug use proportion of 32%. We could also found in the plot that the states having high proportion of marijuana use are those in which marijuana use is legal, whereas the states which make it illegal have low rate of marijuana such as Utah, Iowa, and Nebraska.</p>
+</div>
+<div id="marijuana-start-age" class="section level2">
+<h2>Marijuana Start Age</h2>
+<p>Although the mean starting age are relatively similar for each state, we found that Arizona still has the youngest starting age, which means that Arizona has severe problem of marijuana abuse not only for the proportion, but also for the starting age. Moreover, by comparing the plot of light dose and heavy dose, we discover that people who have heavy dose generally start to use marijuana earlier than those who have light dose.</p>
+</div>
+<div id="discussion" class="section level2">
+<h2>Discussion</h2>
+<p>Based on the statistical analysis and visualization in <a href="Data_Analysis.html">Data Analysis</a>, we have some important findings: There are strong associations between overall drug use status and behaviors that are extremely dangerous, such as driving or riding car with drunk driver, carrying weapons, attempt to suicide, physical fights, among high school students. Some of behaviors could result in irreversible fatal outcomes, so these findings should raise school’s attention on the reasons behind this correlation and came up with some methods resolve the issues. Moreover, the proportion of behaviors that could harm the long-term health condition of students, such as sexual activity and short sleep time, is higher among students who used drug more frequently. As for multi-level risky behaviors, we focus on smoking status, binge drinking, seat belt use and grades in school (GPA), and examine the relationship between drug use status and those risky factors separately. Also, we identify the association across grade, gender and race. We conclude that there is a significant effect of smoking status and binge drinking on drug use status, which means the association between drug use and those risky behaviors is very strong. Students with heavy dose usage tend to smoke more and have more binge drinking compared to students with no drug usage and light dose usage, which indicates that smoking and drinking are common among students who use drugs. 9th grade students have higher portions of heavy smokers and heavy binge drinking than other grades. Also, male have higher portions of heavy smokers and heavy binge drinking than female. Black or African American has a relatively weak association between drug use and both smoking and binge drinking. As for seat belt use, students who have fewer drugs wear seat belt more often. Therefore, students with no drug use have the highest safety awareness compare to students who have drug. Also, such students also tend to do better in school performance than those who use drugs, since the proportion of mostly A’s in GPA is very high in students who do not take drug. For continuous variables, such as age of initial smoking, among subjects who started to smoke from 9 to 12 years old, higher portions are heavy dose drug use subjects. Also, higher percentages of subjects who started to drink alcohol from 8 to 12 years old are heavy dose drug use subjects. There is an association between smoking and alcohol starting age and drug use frequency. It also implies that heavy dose subjects tend to smoke and drink alcohol much earlier than light dose drug use subjects and no drug use subjects. Based on boxplot and ANOVA test, there is no significant difference of BMI among three drug use frequency groups. The health condition of students represents the future of the country. Although we could not make any causative conclusion, the presence of strong correlations should be the urgent call for more further studies and policies about on drug use among youth. The dose-response relationship between the drug use and these behaviors further validates the existence of the association and it might imply a causative effect of drug use on the incidence of risky behaviors.</p>
+</div>
+</div>
+<div id="strength-and-limition" class="section level1">
+<h1>Strength and Limition</h1>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

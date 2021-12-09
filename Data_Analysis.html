@@ -409,7 +409,8 @@ library(kableExtra)
 knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
-  echo = FALSE
+  echo = FALSE,
+  fig.width = 10
 )
 
 theme_set(theme_minimal() + theme(legend.position = &quot;bottom&quot;))
@@ -1035,9 +1036,9 @@ All other Races
 </table>
 <p>From Table 2, we can see that the overall p-value is significantly small and the p-value of each stratum is significantly small to say that there is association between drug use status and drunk driving. There are differences of effect size among grade, gender and race, implying some interaction effect, but the lowest effect size is still above 0.22, suggesting a moderate association between drug use status and the drunk driving. The effect size demonstrates that the association might be stronger among higher grade, male and white race.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-5-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-5-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-5-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-5-3.png" width="960" /></p>
 <p>All proportion plots display that an increasing level of drug use frequency has a higher proportion of drunk driving. The dose-response relationship also verifies the existence of the association.</p>
 </div>
 <div id="cell-phone-use-while-driving" class="section level3">
@@ -1277,9 +1278,9 @@ All other Races
 </table>
 <p>From Table 3, we can see that not all p-values are significant enough to conclude an association between drug_use status and cell phone use while driving. Since younger children have much less chance of driving than older children, it is make sense that the association is heavily impacted by the grade. However, it also shows no association between drug_use status and cell phone use while driving among Black or African American and all other races. In a conservative perspective, we would conclude that the association between drug_use status and cell phone use while driving is weak, especially among Black or African American and all other races students.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-8-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-8-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-8-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-8-3.png" width="960" /></p>
 <p>The overall proportion of cell phone use while driving rises while the level of drug use rises. However, the increment is small and invisible after stratifying by races. Female tends to have higher proportion of cell phone use while driving regardless of drug use status.</p>
 </div>
 <div id="carrying-weapon" class="section level3">
@@ -1519,9 +1520,9 @@ All other Races
 </table>
 <p>From Table 4, we can see that all p-values are significantly small to conclude that there is association between drug use status and carrying weapon. The overall effect size is around 0.26 while the lowest effect size is greater than 0.2, so we are confident to say that it is an medium association. However, the large difference of effect size among gender and race implies the interaction effects of gender and race on the association. The association between drug use status and carrying weapon is stronger among male compared to female; the association between drug use status and carrying weapon is strongest among Black or African American and weakest among White.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-10-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-11-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-11-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-11-3.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-11-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-11-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-11-3.png" width="960" /></p>
 <p>All plots demonstrate an rising trend of proportion of carrying weapon with the increase level of drug use frequency. The proportion of carrying weapon boosts from light dose drug use to heavy dose drug use. 9th Grade has highest proportion of carrying weapon regardless of drug use status while male has higher proportion of carrying weapon than female ar all drug use status. The proportion of Black and African American students carrying weapon suddenly escalates on heavy dose drug use.</p>
 </div>
 <div id="suicide-attempt" class="section level3">
@@ -1761,9 +1762,9 @@ All other Races
 </table>
 <p>From Table 5, we can see that all p-values are small enough, so we could reject the null hypothesis that there is association between drug use status and suicide attempt. The overall effect size is around 0.33 while the lowest effect size is greater than 0.21, so the association is moderately strong. The interaction effect of race in the association is detected by the difference of effect size among different races. The association is strongest for all other races while it is weakest for Black or African American.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-13-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-14-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-14-3.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-14-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-14-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-14-3.png" width="960" /></p>
 <p>Based on these proportion plots, the proportion of suicide attempt increases while the level of drug use frequency goes up. This trend also shows up at each stratum in the stratified plot. The dose-response relationship supports our conclusion about the association between suicide attempt and drug use status.</p>
 </div>
 <div id="quit-smoking" class="section level3">
@@ -2003,9 +2004,9 @@ All other Races
 </table>
 <p>For quit smoking, we should focus on students who smoke so the number of non-smokers won’t bias our results. After filtering out the nonsmokers, the resulted table is in Table 6. Some p-values are not significantly small enough to conclude the association. The overall effect size is around 0.08 and the difference of effect size among grades and among races are significantly large, so the confounding and interaction effects heavily impacted the analysis of association. We would conclude that there is no association between drug use status and quit smoking.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-16-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-17-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-17-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-17-3.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-17-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-17-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-17-3.png" width="960" /></p>
 <p>The proportion bar plots do not demonstrate any dose-response relationship since the proportion has no trend of increasing or decreasing across the drug use status. Moreover, the difference of proportion is small between each drug use status. Thus, these plots support the conclusion in the analysis table that there is no association between quit smoking and drug use status.</p>
 </div>
 <div id="physical-fight" class="section level3">
@@ -2245,9 +2246,9 @@ All other Races
 </table>
 <p>From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, it is the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-19-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-20-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-20-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-20-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-20-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-20-3.png" width="960" /></p>
 <p>The plots illustrate a positive relationship between drug use status and proportion of physical fight, so the proportion of physical fight is higher when the drug use is heavier. This positive trend is stable in each stratum in the stratified plot. The plots are consistent with our conclusion based on the statistical analysis table and enhance the inference about the association between drug use status and physical fight.</p>
 </div>
 <div id="early-age-sexual-intercourse" class="section level3">
@@ -2487,9 +2488,9 @@ All other Races
 </table>
 <p>From Table 8, all p-value are significantly small and the effect size are around 0.4, it shows that the association between drug use status and early age sex is strong. The effect size over each stratum is close to each other, so the interaction effect is negligible.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-22-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-23-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-23-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-23-3.png" width="672" /> The plots illustrate a positive relationship between drug use status and proportion of early age sex, so the proportion of early age sex is higher when the drug use is heavier. 9th Grade has highest proportion of having early age sex regardless of drug use status while male has higher proportion of having early age sex than female ar all drug use status. Hispanic race has higher proportion of having early age sex when they used heavy dose compared to did not use drug and used light dose drug, which implies a high risky sexual behavior can be triggered when they use heavy dose drug.</p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-23-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-23-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-23-3.png" width="960" /> The plots illustrate a positive relationship between drug use status and proportion of early age sex, so the proportion of early age sex is higher when the drug use is heavier. 9th Grade has highest proportion of having early age sex regardless of drug use status while male has higher proportion of having early age sex than female ar all drug use status. Hispanic race has higher proportion of having early age sex when they used heavy dose compared to did not use drug and used light dose drug, which implies a high risky sexual behavior can be triggered when they use heavy dose drug.</p>
 </div>
 <div id="screening-use" class="section level3">
 <h3>8. Screening Use</h3>
@@ -2727,14 +2728,14 @@ All other Races
 </tbody>
 </table>
 <p>From Table 9, p-value is not significantly small and effect size is small, implying that there is not a strong association between screening use and drug use frequency.</p>
-<p>Overall: <img src="Data_Analysis_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>Overall: <img src="Data_Analysis_files/figure-html/unnamed-chunk-25-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-26-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-26-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-26-3.png" width="672" /> All plots show that there is not too much difference of screening use for different drug use frequency groups.</p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-26-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-26-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-26-3.png" width="960" /> All plots show that there is not too much difference of screening use for different drug use frequency groups.</p>
 </div>
 <div id="sleeping-time" class="section level3">
 <h3>9. Sleeping Time</h3>
 <p>The density plot shows that heavy dose use subjects sleep less than no drug use subjects and light dose use subjects. Also, more portions of subjects sleep less than 5 hours for heavy dose use compared to no drug use and light dose use subjects.</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-27-1.png" width="960" /></p>
 <table class=" lightable-paper lightable-hover" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Table 10: Drug Use Status vs Enough Sleeping
@@ -2970,9 +2971,9 @@ All other Races
 </table>
 <p>From Table 10, we can see that the overall p-value is significantly small. However, the effect size is around 0.1, suggesting the association is not that strong.</p>
 <p>Overall:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-29-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-30-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-30-2.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-30-3.png" width="672" /> The “enough sleeping” plots shows that heavy dose subjects tend to have least proportions of having enough sleep in all grades and races. Male subjects tend to have more enough sleeping for no drug and use light dose, whereas they tend to have less enough sleeping time when use heavy dose of drug. It infers an association between sleeping time and drug use frequency.</p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-30-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-30-2.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-30-3.png" width="960" /> The “enough sleeping” plots shows that heavy dose subjects tend to have least proportions of having enough sleep in all grades and races. Male subjects tend to have more enough sleeping for no drug and use light dose, whereas they tend to have less enough sleeping time when use heavy dose of drug. It infers an association between sleeping time and drug use frequency.</p>
 </div>
 </div>
 <div id="multi-level" class="section level2">
@@ -3213,10 +3214,10 @@ All other Races
 </tbody>
 </table>
 <p>From table 11, we can see that all p-values are significantly small and the effect sizes are around 0.8, which means there is a strong association between drug use and smoking status. The association between drug use and smoking status is weaker among 12th Grade compared to other grades. Among race, All Other Races has the strongest association between drug use and smoking status, and Black or African American has the weakest association.</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-32-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-33-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-34-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-35-1.png" width="960" /></p>
 <p>Based on the plot, it shows that heavy dose subjects tend to smoke more because there are more light dose and heavy dose smokers compared to no drug use and light dose drug use subjects. Higher portions of heavy smokers are 9th grade subjects and male gender. In addition, for heavy dose subjects, there are higher portions of heavy smokers in white race compared to Hispanic and Black race.</p>
 </div>
 <div id="binge-drinking" class="section level3">
@@ -3455,10 +3456,10 @@ All other Races
 </tbody>
 </table>
 <p>From table 12, all p-values are significantly small and the overall effect size is as high as 0.9, which indicate that there is a very strong association between drug use and binge drinking. The association between drug use and binge drinking is stronger among 9th Grade compared to other grades, and is stronger among male compared to female. Among race, Black or African American has a relatively weak association between drug use and binge drinking compared to other classification of races.</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-37-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-38-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-39-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-40-1.png" width="960" /></p>
 <p>With the increase of drug use, the proportion of no binge drinking decreases, and the proportion of both light and heavy binge drinking increase. The trend of proportion of binge drinking is similar among grade and gender. Among race, no matter in what classification of drug use status, the proportion of no binge drinking among Black or African American is higher than other races, and the proportion of both light and heavy binge drinking is lower than other races.</p>
 </div>
 <div id="seat-belt-use" class="section level3">
@@ -3697,10 +3698,10 @@ All other Races
 </tbody>
 </table>
 <p>From table 13, all p-values are significantly small, and generally the effect size is around 0.4, which indicate that there is a strong association between drug use and seat belt use. The association between drug use and seat belt use is the strongest among 12th Grade compared to other grades, and is stronger among White compared to other races. As for gender, the association between drug use and seat belt use among male and female are very similar.</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-42-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-43-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-44-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-45-1.png" width="960" /></p>
 <p>With the increase of drug use, the proportion of both never and sometimes use seat belt increase, and the proportion of always use seat belt decreases. The trend of proportion of seat belt use is similar among grade, gender, and sex, with a slightly higher proportion of never use seat belt than sometimes use seat belt in heavy drug dose status among male.</p>
 </div>
 <div id="grades-in-school" class="section level3">
@@ -3939,10 +3940,10 @@ All other Races
 </tbody>
 </table>
 <p>From table 14, all p-values are significantly small, and the overall effect size is around 0.6, which means that there is a strong association between drug use and GPA. The association between drug use and GPA is the strongest among 11th Grade compared to other grades, and is the weakest among 10th Grade compared to other grades. Also, the association between drug use and GPA is stronger among female than male, and is stronger among students who are classified into all other races compared to students who are classified into other race groups.</p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-48-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-49-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-50-1.png" width="960" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-51-1.png" width="960" /></p>
 <p>With the increase of drug use, the proportion of Mostly A’s decreases, the proportion of Mostly B’s has a little change, and the proportion of both mostly C’s and below C’s increase. The trend is particularly significant among 11th grade compared to other grades, and among all other races compared with White, Black or African American, and Hispanic/Latino.</p>
 </div>
 </div>
@@ -3950,15 +3951,15 @@ All other Races
 <h2>Continuous Variable</h2>
 <div id="smoke-initial-age" class="section level3">
 <h3>14. Smoke initial age</h3>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-52-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-52-2.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-52-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-52-2.png" width="960" /></p>
 </div>
 <div id="alcohol-initial-age" class="section level3">
 <h3>15.Alcohol initial age</h3>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-53-1.png" width="672" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-53-2.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-53-1.png" width="960" /><img src="Data_Analysis_files/figure-html/unnamed-chunk-53-2.png" width="960" /></p>
 </div>
 <div id="bmi" class="section level3">
 <h3>16.BMI</h3>
-<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p><img src="Data_Analysis_files/figure-html/unnamed-chunk-54-1.png" width="960" /></p>
 <pre><code>##                  Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## drug_use_freq     2   1841   920.4   32.45 8.54e-15 ***
 ## Residuals     18923 536712    28.4                     

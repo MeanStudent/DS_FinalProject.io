@@ -439,12 +439,95 @@ Light_pyramid_plot
 No_drug_pyramid_plot
 ```
 
-# Marijuana and Other Durgs Use Proportion
+# Marijuana and Other Durgs Use Proportion{.tabset}
 
-Marijuana is the most abused drug, we are interested in the marijuana drug use proportion, as well as all other drugs use proportion across the states. The analysis plot is in the dashboard. According to the plot, we found that Arizona has the largest proportion of marijuana use among the youth, which is 52%. Arizona also has the highest other drug use proportion of 32%. We could also found in the plot that the states having high proportion of marijuana use are those in which marijuana use is legal, whereas the states which make it illegal have low rate of marijuana such as Utah, Iowa, and Nebraska.
+Marijuana is the most abused drug, we are interested in the marijuana drug use proportion, as well as all other drugs use proportion across the states. According to the plot, most of the states has the overall drug use proportion greater than 50%. We found that Arizona has the largest proportion of marijuana use among the youth, which is 52%. Arizona also has the highest other drug use proportion of 32%. We could also found in the plot that the states having high proportion of marijuana use are those in which marijuana use is legal, whereas the states which make it illegal have low rate of marijuana such as Utah, Iowa, and Nebraska.
 
-# The Average Starting Age of Marijuana
+```{r message = FALSE, warning = FALSE}
+if_use = function(input_list){
+  output = case_when(input_list == 0 ~ FALSE,
+                     input_list != 0 ~ TRUE)
+}
+state_proportion_drugtype = yrbss_state %>% 
+  select(state, marijuana, cocaine, inhale, heroin, methamphetamine, ecstasy, steroid, illegal_injection) %>% 
+  mutate(marijuana = if_use(marijuana),
+         others = cocaine + inhale + heroin + methamphetamine + 
+           ecstasy + steroid + illegal_injection,
+         others = if_use(others)) %>% 
+  select(state, marijuana, others) %>% 
+  group_by(state) %>% 
+  summarise(total_population = n(),
+            marijuana = sum(marijuana),
+            others = sum(others)) %>% 
+  mutate(proportion_marijuana = marijuana / total_population,
+         proportion_others = others / total_population,
+         total_proportion = proportion_marijuana + proportion_others) %>% 
+  pivot_longer(proportion_marijuana:proportion_others,
+               names_to = "drug_type",
+               values_to = "proportion") %>% 
+  mutate(drug_type = recode(drug_type, 
+                            proportion_marijuana = "marijuana",
+                            proportion_others = "other drugs"))
+state_age = yrbss_state %>% 
+  select(state, marijuana_use_freq, age_marijuana) %>% 
+  filter(marijuana_use_freq != "No Drug Use") %>% 
+  group_by(state, marijuana_use_freq) %>% 
+  summarise(mean_start_age = mean(age_marijuana, na.rm = TRUE))
 
-We are also interested in the average of the age that the youth first use marijuana. We tried to find if the mean starting age has a different pattern for each state. According to the plot in dashboard, although the mean starting age are relatively similar for each state, we found that Arizona still has the youngest starting age, which means that Arizona has severe problem of marijuana abuse not only for the proportion, but also for the starting age.
+state_bar_lower = state_proportion_drugtype %>% 
+  filter(total_proportion < 0.5) %>% 
+  plot_ly(x = ~state, y = ~proportion, 
+          color = ~drug_type, type = "bar")
 
+state_bar_greater = state_proportion_drugtype %>% 
+  filter(total_proportion >= 0.5) %>% 
+  plot_ly(x = ~state, y = ~proportion, 
+          color = ~drug_type, type = "bar")
+```
+
+## Drug Use Less Than 50%
+
+```{r warning = FALSE}
+state_bar_lower
+```
+
+## Drug Use More Than 50%
+
+```{r warning = FALSE}
+state_bar_greater
+```
+
+
+# The Average Starting Age of Marijuana{.tabset}
+
+We are also interested in the average of the age that the youth first use marijuana. We tried to find if the mean starting age has a different pattern for each state. According to the plot in dashboard, although the mean starting age are relatively similar for each state, we found that Arizona still has the youngest starting age, which means that Arizona has severe problem of marijuana abuse not only for the proportion, but also for the starting age. Moreover, by comparing the plot of light dose and heavy dose, we discover that people who have heavy dose generally start to use marijuana earlier than those who have light dose.
+
+```{r}
+state_age_heavy = state_age %>% 
+  filter(marijuana_use_freq == "Heavy Dose")
+state_age_light = state_age %>% 
+  filter(marijuana_use_freq == "Light Dose")
+  
+map_plot_heavy = plot_usmap(data = state_age_heavy, values = "mean_start_age", color = color_dict[["Heavy Dose"]], labels = TRUE) + 
+  scale_fill_gradient(
+    low = "white", high = color_dict[["Heavy Dose"]], name = "Mean Marijuana Start Age", label = scales::comma
+  ) + theme(legend.position = "right")
+
+map_plot_light = plot_usmap(data = state_age_heavy, values = "mean_start_age", color = color_dict[["Light Dose"]], labels = TRUE) + 
+  scale_fill_gradient(
+    low = "white", high = color_dict[["Light Dose"]], name = "Mean Marijuana Start Age", label = scales::comma
+  ) + theme(legend.position = "right")
+```
+
+## Heavy Dose
+
+```{r}
+ggplotly(map_plot_heavy)
+```
+
+## Light Dose
+
+```{r}
+ggplotly(map_plot_light)
+```
 

@@ -26,7 +26,7 @@ navbar:
       - text: "3"
         href: 
     - text: "Report"
-      href: 
+      href: Report.html
     - text: "about"
       href: 
     - icon: fa-envelope fa-lg

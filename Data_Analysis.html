@@ -13,8 +13,8 @@
 
 <title>Data Analysis</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -403,11 +403,10 @@ div.tocify {
 <pre class="r"><code>library(tidyverse)
 library(survey)
 library(viridis)
-library(table1)</code></pre>
-<pre><code>## Warning: package &#39;table1&#39; was built under R version 4.1.2</code></pre>
-<pre class="r"><code>library(kableExtra)</code></pre>
-<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.1.2</code></pre>
-<pre class="r"><code>knitr::opts_chunk$set(
+library(table1)
+library(kableExtra)
+
+knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   echo = FALSE
@@ -432,9 +431,9 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <thead>
 <tr>
 <th class='rowlabel firstrow lastrow'></th>
-<th class='firstrow lastrow'><span class='stratlabel'>Heavy Dose<br><span class='stratn'>(N=1778)</span></span></th>
-<th class='firstrow lastrow'><span class='stratlabel'>Light Dose<br><span class='stratn'>(N=4257)</span></span></th>
 <th class='firstrow lastrow'><span class='stratlabel'>No Drug Use<br><span class='stratn'>(N=13819)</span></span></th>
+<th class='firstrow lastrow'><span class='stratlabel'>Light Dose<br><span class='stratn'>(N=4257)</span></span></th>
+<th class='firstrow lastrow'><span class='stratlabel'>Heavy Dose<br><span class='stratn'>(N=1778)</span></span></th>
 <th class='firstrow lastrow'><span class='stratlabel'>Overall<br><span class='stratn'>(N=19854)</span></span></th>
 </tr>
 </thead>
@@ -447,18 +446,18 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>No</td>
-<td>1126 (63.3%)</td>
-<td>3382 (79.4%)</td>
-<td>12486 (90.4%)</td>
-<td>16994 (85.6%)</td>
+<td class='rowlabel'>Yes</td>
+<td>1333 (9.6%)</td>
+<td>875 (20.6%)</td>
+<td>652 (36.7%)</td>
+<td>2860 (14.4%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Yes</td>
-<td class='lastrow'>652 (36.7%)</td>
-<td class='lastrow'>875 (20.6%)</td>
-<td class='lastrow'>1333 (9.6%)</td>
-<td class='lastrow'>2860 (14.4%)</td>
+<td class='rowlabel lastrow'>No</td>
+<td class='lastrow'>12486 (90.4%)</td>
+<td class='lastrow'>3382 (79.4%)</td>
+<td class='lastrow'>1126 (63.3%)</td>
+<td class='lastrow'>16994 (85.6%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Text Driving</td>
@@ -468,18 +467,18 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>No</td>
-<td>496 (27.9%)</td>
-<td>1365 (32.1%)</td>
-<td>5628 (40.7%)</td>
-<td>7489 (37.7%)</td>
+<td class='rowlabel'>Yes</td>
+<td>8191 (59.3%)</td>
+<td>2892 (67.9%)</td>
+<td>1282 (72.1%)</td>
+<td>12365 (62.3%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Yes</td>
-<td class='lastrow'>1282 (72.1%)</td>
-<td class='lastrow'>2892 (67.9%)</td>
-<td class='lastrow'>8191 (59.3%)</td>
-<td class='lastrow'>12365 (62.3%)</td>
+<td class='rowlabel lastrow'>No</td>
+<td class='lastrow'>5628 (40.7%)</td>
+<td class='lastrow'>1365 (32.1%)</td>
+<td class='lastrow'>496 (27.9%)</td>
+<td class='lastrow'>7489 (37.7%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Weapon Carrying</td>
@@ -489,18 +488,18 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>No</td>
-<td>1512 (85.0%)</td>
-<td>4078 (95.8%)</td>
-<td>13496 (97.7%)</td>
-<td>19086 (96.1%)</td>
+<td class='rowlabel'>Yes</td>
+<td>323 (2.3%)</td>
+<td>179 (4.2%)</td>
+<td>266 (15.0%)</td>
+<td>768 (3.9%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Yes</td>
-<td class='lastrow'>266 (15.0%)</td>
-<td class='lastrow'>179 (4.2%)</td>
-<td class='lastrow'>323 (2.3%)</td>
-<td class='lastrow'>768 (3.9%)</td>
+<td class='rowlabel lastrow'>No</td>
+<td class='lastrow'>13496 (97.7%)</td>
+<td class='lastrow'>4078 (95.8%)</td>
+<td class='lastrow'>1512 (85.0%)</td>
+<td class='lastrow'>19086 (96.1%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Suicide Attempt</td>
@@ -510,18 +509,18 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>No</td>
-<td>1110 (62.4%)</td>
-<td>3052 (71.7%)</td>
-<td>12174 (88.1%)</td>
-<td>16336 (82.3%)</td>
+<td class='rowlabel'>Yes</td>
+<td>1645 (11.9%)</td>
+<td>1205 (28.3%)</td>
+<td>668 (37.6%)</td>
+<td>3518 (17.7%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Yes</td>
-<td class='lastrow'>668 (37.6%)</td>
-<td class='lastrow'>1205 (28.3%)</td>
-<td class='lastrow'>1645 (11.9%)</td>
-<td class='lastrow'>3518 (17.7%)</td>
+<td class='rowlabel lastrow'>No</td>
+<td class='lastrow'>12174 (88.1%)</td>
+<td class='lastrow'>3052 (71.7%)</td>
+<td class='lastrow'>1110 (62.4%)</td>
+<td class='lastrow'>16336 (82.3%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Quit Smoking</td>
@@ -532,24 +531,24 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 </tr>
 <tr>
 <td class='rowlabel'>Never Smoke</td>
-<td>359 (20.2%)</td>
-<td>2245 (52.7%)</td>
 <td>12344 (89.3%)</td>
+<td>2245 (52.7%)</td>
+<td>359 (20.2%)</td>
 <td>14948 (75.3%)</td>
 </tr>
 <tr>
-<td class='rowlabel'>No</td>
-<td>763 (42.9%)</td>
-<td>943 (22.2%)</td>
-<td>724 (5.2%)</td>
-<td>2430 (12.2%)</td>
+<td class='rowlabel'>Yes</td>
+<td>751 (5.4%)</td>
+<td>1069 (25.1%)</td>
+<td>656 (36.9%)</td>
+<td>2476 (12.5%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Yes</td>
-<td class='lastrow'>656 (36.9%)</td>
-<td class='lastrow'>1069 (25.1%)</td>
-<td class='lastrow'>751 (5.4%)</td>
-<td class='lastrow'>2476 (12.5%)</td>
+<td class='rowlabel lastrow'>No</td>
+<td class='lastrow'>724 (5.2%)</td>
+<td class='lastrow'>943 (22.2%)</td>
+<td class='lastrow'>763 (42.9%)</td>
+<td class='lastrow'>2430 (12.2%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Physical Fight</td>
@@ -559,18 +558,18 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>No</td>
-<td>958 (53.9%)</td>
-<td>3177 (74.6%)</td>
-<td>12199 (88.3%)</td>
-<td>16334 (82.3%)</td>
+<td class='rowlabel'>Yes</td>
+<td>1620 (11.7%)</td>
+<td>1080 (25.4%)</td>
+<td>820 (46.1%)</td>
+<td>3520 (17.7%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Yes</td>
-<td class='lastrow'>820 (46.1%)</td>
-<td class='lastrow'>1080 (25.4%)</td>
-<td class='lastrow'>1620 (11.7%)</td>
-<td class='lastrow'>3520 (17.7%)</td>
+<td class='rowlabel lastrow'>No</td>
+<td class='lastrow'>12199 (88.3%)</td>
+<td class='lastrow'>3177 (74.6%)</td>
+<td class='lastrow'>958 (53.9%)</td>
+<td class='lastrow'>16334 (82.3%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Sexual Intercourse</td>
@@ -580,18 +579,18 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>No</td>
-<td>1037 (58.3%)</td>
-<td>3418 (80.3%)</td>
-<td>13012 (94.2%)</td>
-<td>17467 (88.0%)</td>
+<td class='rowlabel'>Yes</td>
+<td>807 (5.8%)</td>
+<td>839 (19.7%)</td>
+<td>741 (41.7%)</td>
+<td>2387 (12.0%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Yes</td>
-<td class='lastrow'>741 (41.7%)</td>
-<td class='lastrow'>839 (19.7%)</td>
-<td class='lastrow'>807 (5.8%)</td>
-<td class='lastrow'>2387 (12.0%)</td>
+<td class='rowlabel lastrow'>No</td>
+<td class='lastrow'>13012 (94.2%)</td>
+<td class='lastrow'>3418 (80.3%)</td>
+<td class='lastrow'>1037 (58.3%)</td>
+<td class='lastrow'>17467 (88.0%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Screening Use</td>
@@ -602,9 +601,9 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 </tr>
 <tr>
 <td class='rowlabel'>Mean (SD)</td>
-<td>3.80 (2.64)</td>
-<td>3.86 (2.48)</td>
 <td>3.65 (2.36)</td>
+<td>3.86 (2.48)</td>
+<td>3.80 (2.64)</td>
 <td>3.71 (2.41)</td>
 </tr>
 <tr>
@@ -623,16 +622,16 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 </tr>
 <tr>
 <td class='rowlabel'>Mean (SD)</td>
-<td>6.16 (1.38)</td>
-<td>6.36 (1.33)</td>
 <td>6.71 (1.30)</td>
+<td>6.36 (1.33)</td>
+<td>6.16 (1.38)</td>
 <td>6.59 (1.33)</td>
 </tr>
 <tr>
 <td class='rowlabel lastrow'>Median [Min, Max]</td>
-<td class='lastrow'>6.00 [4.00, 10.0]</td>
-<td class='lastrow'>6.00 [4.00, 10.0]</td>
 <td class='lastrow'>7.00 [4.00, 10.0]</td>
+<td class='lastrow'>6.00 [4.00, 10.0]</td>
+<td class='lastrow'>6.00 [4.00, 10.0]</td>
 <td class='lastrow'>7.00 [4.00, 10.0]</td>
 </tr>
 <tr>
@@ -643,25 +642,25 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>Heavy Smoker</td>
-<td>58 (3.3%)</td>
-<td>15 (0.4%)</td>
-<td>11 (0.1%)</td>
-<td>84 (0.4%)</td>
+<td class='rowlabel'>Never Smoker</td>
+<td>13596 (98.4%)</td>
+<td>3743 (87.9%)</td>
+<td>1078 (60.6%)</td>
+<td>18417 (92.8%)</td>
 </tr>
 <tr>
 <td class='rowlabel'>Light Smoker</td>
-<td>642 (36.1%)</td>
-<td>499 (11.7%)</td>
 <td>212 (1.5%)</td>
+<td>499 (11.7%)</td>
+<td>642 (36.1%)</td>
 <td>1353 (6.8%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Never Smoker</td>
-<td class='lastrow'>1078 (60.6%)</td>
-<td class='lastrow'>3743 (87.9%)</td>
-<td class='lastrow'>13596 (98.4%)</td>
-<td class='lastrow'>18417 (92.8%)</td>
+<td class='rowlabel lastrow'>Heavy Smoker</td>
+<td class='lastrow'>11 (0.1%)</td>
+<td class='lastrow'>15 (0.4%)</td>
+<td class='lastrow'>58 (3.3%)</td>
+<td class='lastrow'>84 (0.4%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Binge Drinking</td>
@@ -671,25 +670,25 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>Heavy Binge Drinking</td>
-<td>261 (14.7%)</td>
-<td>157 (3.7%)</td>
-<td>41 (0.3%)</td>
-<td>459 (2.3%)</td>
+<td class='rowlabel'>No Binge Drinking</td>
+<td>13359 (96.7%)</td>
+<td>3308 (77.7%)</td>
+<td>921 (51.8%)</td>
+<td>17588 (88.6%)</td>
 </tr>
 <tr>
 <td class='rowlabel'>Light Binge Drinking</td>
-<td>596 (33.5%)</td>
-<td>792 (18.6%)</td>
 <td>419 (3.0%)</td>
+<td>792 (18.6%)</td>
+<td>596 (33.5%)</td>
 <td>1807 (9.1%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>No Binge Drinking</td>
-<td class='lastrow'>921 (51.8%)</td>
-<td class='lastrow'>3308 (77.7%)</td>
-<td class='lastrow'>13359 (96.7%)</td>
-<td class='lastrow'>17588 (88.6%)</td>
+<td class='rowlabel lastrow'>Heavy Binge Drinking</td>
+<td class='lastrow'>41 (0.3%)</td>
+<td class='lastrow'>157 (3.7%)</td>
+<td class='lastrow'>261 (14.7%)</td>
+<td class='lastrow'>459 (2.3%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Seat Belt Use</td>
@@ -699,25 +698,25 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 <td class='firstrow'></td>
 </tr>
 <tr>
-<td class='rowlabel'>Most of the time or Always</td>
-<td>1190 (66.9%)</td>
-<td>3435 (80.7%)</td>
-<td>12291 (88.9%)</td>
-<td>16916 (85.2%)</td>
-</tr>
-<tr>
 <td class='rowlabel'>Never or Rarely</td>
-<td>284 (16.0%)</td>
-<td>307 (7.2%)</td>
 <td>526 (3.8%)</td>
+<td>307 (7.2%)</td>
+<td>284 (16.0%)</td>
 <td>1117 (5.6%)</td>
 </tr>
 <tr>
-<td class='rowlabel lastrow'>Sometimes</td>
-<td class='lastrow'>304 (17.1%)</td>
-<td class='lastrow'>515 (12.1%)</td>
-<td class='lastrow'>1002 (7.3%)</td>
-<td class='lastrow'>1821 (9.2%)</td>
+<td class='rowlabel'>Sometimes</td>
+<td>1002 (7.3%)</td>
+<td>515 (12.1%)</td>
+<td>304 (17.1%)</td>
+<td>1821 (9.2%)</td>
+</tr>
+<tr>
+<td class='rowlabel lastrow'>Most of the time or Always</td>
+<td class='lastrow'>12291 (88.9%)</td>
+<td class='lastrow'>3435 (80.7%)</td>
+<td class='lastrow'>1190 (66.9%)</td>
+<td class='lastrow'>16916 (85.2%)</td>
 </tr>
 <tr>
 <td class='rowlabel firstrow'>Grades in School</td>
@@ -728,44 +727,44 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 </tr>
 <tr>
 <td class='rowlabel'>Mostly A's</td>
-<td>431 (24.2%)</td>
-<td>1565 (36.8%)</td>
 <td>7325 (53.0%)</td>
+<td>1565 (36.8%)</td>
+<td>431 (24.2%)</td>
 <td>9321 (46.9%)</td>
 </tr>
 <tr>
 <td class='rowlabel'>Mostly B's</td>
-<td>663 (37.3%)</td>
-<td>1627 (38.2%)</td>
 <td>4403 (31.9%)</td>
+<td>1627 (38.2%)</td>
+<td>663 (37.3%)</td>
 <td>6693 (33.7%)</td>
 </tr>
 <tr>
-<td class='rowlabel'>Mostly Below C's</td>
-<td>177 (10.0%)</td>
-<td>172 (4.0%)</td>
-<td>304 (2.2%)</td>
-<td>653 (3.3%)</td>
-</tr>
-<tr>
 <td class='rowlabel'>Mostly C's</td>
-<td>418 (23.5%)</td>
-<td>744 (17.5%)</td>
 <td>1404 (10.2%)</td>
+<td>744 (17.5%)</td>
+<td>418 (23.5%)</td>
 <td>2566 (12.9%)</td>
 </tr>
 <tr>
+<td class='rowlabel'>Mostly Below C's</td>
+<td>304 (2.2%)</td>
+<td>172 (4.0%)</td>
+<td>177 (10.0%)</td>
+<td>653 (3.3%)</td>
+</tr>
+<tr>
 <td class='rowlabel'>None of these grades</td>
-<td>17 (1.0%)</td>
-<td>10 (0.2%)</td>
 <td>28 (0.2%)</td>
+<td>10 (0.2%)</td>
+<td>17 (1.0%)</td>
 <td>55 (0.3%)</td>
 </tr>
 <tr>
 <td class='rowlabel lastrow'>Not sure</td>
-<td class='lastrow'>72 (4.0%)</td>
-<td class='lastrow'>139 (3.3%)</td>
 <td class='lastrow'>355 (2.6%)</td>
+<td class='lastrow'>139 (3.3%)</td>
+<td class='lastrow'>72 (4.0%)</td>
 <td class='lastrow'>566 (2.9%)</td>
 </tr>
 </tbody>
@@ -786,7 +785,7 @@ V = \sqrt{\frac{X^2}{n*df}}
 \]</span> where <span class="math inline">\(X^2\)</span> is the chi-square statistic, n is the sample size and <span class="math inline">\(df\)</span> is the degrees of freedom.<br />
 </p>
 <p>Usually, we use the table below to assess the association through the Cramer’s V effect size</p>
-<pre><code>## # A tibble: 5 x 4
+<pre><code>## # A tibble: 5 × 4
 ##      df small_effect medium_effect large_effect
 ##   &lt;int&gt;        &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;
 ## 1     1         0.1           0.3          0.5 
@@ -854,6 +853,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+207.30809
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.2691369
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -903,23 +919,6 @@ Overall
 0.4153781
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-207.30809
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.2691369
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -966,10 +965,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-114.75455
+837.21536
 </td>
 <td style="text-align:right;">
 0
@@ -978,7 +977,7 @@ All other Races
 2
 </td>
 <td style="text-align:right;">
-0.3174118
+0.3756641
 </td>
 </tr>
 <tr>
@@ -1017,10 +1016,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-837.21536
+114.75455
 </td>
 <td style="text-align:right;">
 0
@@ -1029,7 +1028,7 @@ White
 2
 </td>
 <td style="text-align:right;">
-0.3756641
+0.3174118
 </td>
 </tr>
 </tbody>
@@ -1096,6 +1095,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+2.514184
+</td>
+<td style="text-align:right;">
+0.2844800
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.0296390
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -1145,23 +1161,6 @@ Overall
 0.2529522
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-2.514184
-</td>
-<td style="text-align:right;">
-0.2844800
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.0296390
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -1208,19 +1207,19 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-4.285642
+170.964904
 </td>
 <td style="text-align:right;">
-0.1173234
+0.0000000
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.0613403
+0.1697597
 </td>
 </tr>
 <tr>
@@ -1259,19 +1258,19 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-170.964904
+4.285642
 </td>
 <td style="text-align:right;">
-0.0000000
+0.1173234
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.1697597
+0.0613403
 </td>
 </tr>
 </tbody>
@@ -1338,6 +1337,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+275.8729
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.3104700
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -1387,23 +1403,6 @@ Overall
 0.2624922
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-275.8729
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.3104700
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -1450,10 +1449,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-151.6157
+257.4158
 </td>
 <td style="text-align:right;">
 0
@@ -1462,7 +1461,7 @@ All other Races
 2
 </td>
 <td style="text-align:right;">
-0.3648465
+0.2083045
 </td>
 </tr>
 <tr>
@@ -1501,10 +1500,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-257.4158
+151.6157
 </td>
 <td style="text-align:right;">
 0
@@ -1513,7 +1512,7 @@ White
 2
 </td>
 <td style="text-align:right;">
-0.2083045
+0.3648465
 </td>
 </tr>
 </tbody>
@@ -1580,6 +1579,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+412.00584
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.3794171
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -1629,23 +1645,6 @@ Overall
 0.2954751
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-412.00584
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.3794171
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -1692,10 +1691,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-192.74839
+735.17942
 </td>
 <td style="text-align:right;">
 0
@@ -1704,7 +1703,7 @@ All other Races
 2
 </td>
 <td style="text-align:right;">
-0.4113708
+0.3520285
 </td>
 </tr>
 <tr>
@@ -1743,10 +1742,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-735.17942
+192.74839
 </td>
 <td style="text-align:right;">
 0
@@ -1755,7 +1754,7 @@ White
 2
 </td>
 <td style="text-align:right;">
-0.3520285
+0.4113708
 </td>
 </tr>
 </tbody>
@@ -1822,6 +1821,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+17.1191810
+</td>
+<td style="text-align:right;">
+0.0001917
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.1856872
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -1871,23 +1887,6 @@ Overall
 0.0394928
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-17.1191810
-</td>
-<td style="text-align:right;">
-0.0001917
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.1856872
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -1934,19 +1933,19 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-1.9253531
+15.1210110
 </td>
 <td style="text-align:right;">
-0.3818694
+0.0005206
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.0832959
+0.0950840
 </td>
 </tr>
 <tr>
@@ -1985,19 +1984,19 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-15.1210110
+1.9253531
 </td>
 <td style="text-align:right;">
-0.0005206
+0.3818694
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.0950840
+0.0832959
 </td>
 </tr>
 </tbody>
@@ -2064,6 +2063,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+576.12126
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.4486649
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -2113,23 +2129,6 @@ Overall
 0.3856155
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-576.12126
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.4486649
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -2176,10 +2175,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-227.42897
+884.81376
 </td>
 <td style="text-align:right;">
 0
@@ -2188,7 +2187,7 @@ All other Races
 2
 </td>
 <td style="text-align:right;">
-0.4468492
+0.3861954
 </td>
 </tr>
 <tr>
@@ -2227,10 +2226,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-884.81376
+227.42897
 </td>
 <td style="text-align:right;">
 0
@@ -2239,7 +2238,7 @@ White
 2
 </td>
 <td style="text-align:right;">
-0.3861954
+0.4468492
 </td>
 </tr>
 </tbody>
@@ -2306,6 +2305,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+925.9117
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.5687874
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -2355,23 +2371,6 @@ Overall
 0.4105191
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-925.9117
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.5687874
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -2418,10 +2417,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-298.2025
+1402.3034
 </td>
 <td style="text-align:right;">
 0
@@ -2430,7 +2429,7 @@ All other Races
 2
 </td>
 <td style="text-align:right;">
-0.5116745
+0.4861856
 </td>
 </tr>
 <tr>
@@ -2469,10 +2468,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-1402.3034
+298.2025
 </td>
 <td style="text-align:right;">
 0
@@ -2481,7 +2480,7 @@ White
 2
 </td>
 <td style="text-align:right;">
-0.4861856
+0.5116745
 </td>
 </tr>
 </tbody>
@@ -2547,6 +2546,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+25.638308
+</td>
+<td style="text-align:right;">
+0.0000027
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.0946477
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -2596,23 +2612,6 @@ Overall
 0.0387310
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-25.638308
-</td>
-<td style="text-align:right;">
-0.0000027
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.0946477
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -2659,19 +2658,19 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-6.125398
+15.533604
 </td>
 <td style="text-align:right;">
-0.0467613
+0.0004236
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.0733340
+0.0511702
 </td>
 </tr>
 <tr>
@@ -2710,19 +2709,19 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-15.533604
+6.125398
 </td>
 <td style="text-align:right;">
-0.0004236
+0.0467613
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.0511702
+0.0733340
 </td>
 </tr>
 </tbody>
@@ -2789,6 +2788,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+67.607132
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.1536956
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -2838,23 +2854,6 @@ Overall
 0.1346651
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-67.607132
-</td>
-<td style="text-align:right;">
-0.0000000
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.1536956
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -2901,19 +2900,19 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-16.573826
+136.895936
 </td>
 <td style="text-align:right;">
-0.0002518
+0.0000000
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.1206284
+0.1519065
 </td>
 </tr>
 <tr>
@@ -2952,19 +2951,19 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-136.895936
+16.573826
 </td>
 <td style="text-align:right;">
-0.0000000
+0.0002518
 </td>
 <td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0.1519065
+0.1206284
 </td>
 </tr>
 </tbody>
@@ -3033,6 +3032,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+1147.1991
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.8953639
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -3082,23 +3098,6 @@ Overall
 0.7718132
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-1147.1991
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.8953639
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -3145,10 +3144,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-546.7436
+2396.6740
 </td>
 <td style="text-align:right;">
 0
@@ -3157,7 +3156,7 @@ All other Races
 4
 </td>
 <td style="text-align:right;">
-0.9798170
+0.8988777
 </td>
 </tr>
 <tr>
@@ -3196,10 +3195,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-2396.6740
+546.7436
 </td>
 <td style="text-align:right;">
 0
@@ -3208,7 +3207,7 @@ White
 4
 </td>
 <td style="text-align:right;">
-0.8988777
+0.9798170
 </td>
 </tr>
 </tbody>
@@ -3275,6 +3274,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+1331.0011
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.9644271
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -3324,23 +3340,6 @@ Overall
 0.8853223
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-1331.0011
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.9644271
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -3387,10 +3386,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-541.1635
+2685.8813
 </td>
 <td style="text-align:right;">
 0
@@ -3399,7 +3398,7 @@ All other Races
 4
 </td>
 <td style="text-align:right;">
-0.9748042
+0.9515674
 </td>
 </tr>
 <tr>
@@ -3438,10 +3437,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-2685.8813
+541.1635
 </td>
 <td style="text-align:right;">
 0
@@ -3450,7 +3449,7 @@ White
 4
 </td>
 <td style="text-align:right;">
-0.9515674
+0.9748042
 </td>
 </tr>
 </tbody>
@@ -3517,6 +3516,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+301.94172
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.4593479
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -3566,23 +3582,6 @@ Overall
 0.4140647
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-301.94172
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.4593479
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -3629,10 +3628,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-52.95343
+547.86098
 </td>
 <td style="text-align:right;">
 0
@@ -3641,7 +3640,7 @@ All other Races
 4
 </td>
 <td style="text-align:right;">
-0.3049300
+0.4297653
 </td>
 </tr>
 <tr>
@@ -3680,10 +3679,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-547.86098
+52.95343
 </td>
 <td style="text-align:right;">
 0
@@ -3692,7 +3691,7 @@ White
 4
 </td>
 <td style="text-align:right;">
-0.4297653
+0.3049300
 </td>
 </tr>
 </tbody>
@@ -3759,6 +3758,23 @@ Overall
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
+9th Grade
+</td>
+<td style="text-align:right;">
+335.68761
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.6052035
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
 10th Grade
 </td>
 <td style="text-align:right;">
@@ -3808,23 +3824,6 @@ Overall
 0.4793813
 </td>
 </tr>
-<tr>
-<td style="text-align:left;padding-left: 2em;" indentlevel="1">
-9th Grade
-</td>
-<td style="text-align:right;">
-335.68761
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.6052035
-</td>
-</tr>
 <tr grouplength="2">
 <td colspan="5" style="border-bottom: 1px solid;">
 <strong>sex</strong>
@@ -3871,10 +3870,10 @@ male
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-All other Races
+White
 </td>
 <td style="text-align:right;">
-182.43724
+742.64017
 </td>
 <td style="text-align:right;">
 0
@@ -3883,7 +3882,7 @@ All other Races
 6
 </td>
 <td style="text-align:right;">
-0.7076317
+0.6204197
 </td>
 </tr>
 <tr>
@@ -3922,10 +3921,10 @@ Hispanic/Latino
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-White
+All other Races
 </td>
 <td style="text-align:right;">
-742.64017
+182.43724
 </td>
 <td style="text-align:right;">
 0
@@ -3934,7 +3933,7 @@ White
 6
 </td>
 <td style="text-align:right;">
-0.6204197
+0.7076317
 </td>
 </tr>
 </tbody>

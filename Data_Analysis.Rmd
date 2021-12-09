@@ -93,6 +93,27 @@ test_of_association <- function(input_df = yrbss_state_tidy_additional, input_na
 
 ```{r import data}
 yrbss_state_tidy_additional = read_csv("data/yrbss_state_tidy_additional.csv")
+yrbss_state_tidy_additional <- 
+  yrbss_state_tidy_additional %>% 
+  mutate(
+    drug_use_freq = factor(drug_use_freq, levels = c("No Drug Use", "Light Dose", "Heavy Dose")),
+    grade = factor(grade, levels = c("9th Grade", "10th Grade", "11th Grade", "12th Grade")),
+    sex = factor(sex, levels = c("female", "male")),
+    race4 = factor(race4, levels = c("White","Black or African American","Hispanic/Latino","All other Races")),
+    drunk_driving = factor(drunk_driving, levels = c("Yes", "No")),
+    text_driving = factor(text_driving, levels = c("Yes", "No")),
+    carrying_weapon = factor(carrying_weapon, levels = c("Yes", "No")),
+    suicide_attempt = factor(suicide_attempt, levels = c("Yes", "No")),
+    quit_smoke = factor(quit_smoke, levels = c("Never Smoke", "Yes", "No")),
+    physical_fight = factor(physical_fight, levels = c("Yes", "No")),
+    early_sex = factor(early_sex, levels = c("Yes", "No")),
+    heavy_screen_use = factor(heavy_screen_use, levels = c("Yes", "No")),
+    enough_sleep = factor(enough_sleep, levels = c("Yes", "No")),
+    smoking_status = factor(smoking_status, levels = c("Never Smoker", "Light Smoker", "Heavy Smoker")),
+    binge_drinking = factor(binge_drinking, levels = c("No Binge Drinking", "Light Binge Drinking", "Heavy Binge Drinking")),
+    seat_belt = factor(seat_belt, levels = c("Never or Rarely", "Sometimes", "Most of the time or Always")),
+    grades_school = factor(grades_school, levels = c("Mostly A's", "Mostly B's", "Mostly C's", "Mostly Below C's", "None of these grades", "Not sure")),
+  )
 ```
 
 

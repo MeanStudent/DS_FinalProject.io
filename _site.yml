@@ -19,10 +19,6 @@ navbar:
         href: https://meanstudent.shinyapps.io/new_shiny/
     - text: "Report"
       href: Report.html
-    - text: "about"
-      href: 
-    - icon: fa-envelope fa-lg
-      href: mailto:<kh3074@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: https://github.com/ryan2417/drug_abuse_among_youth.github.io.git
 output:

@@ -365,13 +365,6 @@ div.tocify {
 <li>
   <a href="Report.html">Report</a>
 </li>
-<li class="dropdown-header">about</li>
-<li>
-  <a href="mailto:&lt;kh3074@cumc.columbia.edu&gt;">
-    <span class="fa fa-envelope fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="https://github.com/ryan2417/drug_abuse_among_youth.github.io.git">
     <span class="fa fa-github fa-lg"></span>
@@ -772,11 +765,11 @@ scale_fill_discrete = scale_fill_viridis_d(option = &quot;viridis&quot;)</code><
 </table>
 </div>
 </div>
-<div id="hypothesis-testing-with-visualization-of-drug-status-comparison" class="section level2">
-<h2>Hypothesis Testing with visualization of drug status comparison</h2>
+<div id="hypothesis-testing" class="section level2">
+<h2>Hypothesis Testing</h2>
 <div id="chi-square-test" class="section level3">
 <h3>Chi-square Test</h3>
-<p>For bi-level and multi-level categorical variables, we test the independence of two categorical variables, so we should use the R X C chi-square test with hypotheses that</p>
+<p>For bi-level and multi-level categorical variables, we test the independence of two categorical variables, so we should use the R <span class="math inline">\(\times\)</span> C chi-square test with hypotheses that</p>
 <p><span class="math display">\[
 H_0:\text{There is no association between drug use and the health-related variable of interest}
 \]</span> <span class="math display">\[
@@ -786,15 +779,105 @@ V = \sqrt{\frac{X^2}{n*df}}
 \]</span> where <span class="math inline">\(X^2\)</span> is the chi-square statistic, n is the sample size and <span class="math inline">\(df\)</span> is the degrees of freedom.<br />
 </p>
 <p>Usually, we use the table below to assess the association through the Cramer’s V effect size</p>
-<pre><code>## # A tibble: 5 × 4
-##      df small_effect medium_effect large_effect
-##   &lt;int&gt;        &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;
-## 1     1         0.1           0.3          0.5 
-## 2     2         0.07          0.21         0.35
-## 3     3         0.06          0.17         0.29
-## 4     4         0.05          0.15         0.25
-## 5     5         0.04          0.13         0.22</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+small_effect
+</th>
+<th style="text-align:right;">
+medium_effect
+</th>
+<th style="text-align:right;">
+large_effect
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.07
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+0.17
+</td>
+<td style="text-align:right;">
+0.29
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.05
+</td>
+<td style="text-align:right;">
+0.15
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+0.13
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+</tr>
+</tbody>
+</table>
 <p>Besides the crude analysis which test the association for all observations in the data set, we also perform a stratified analysis over grade, gender and race to investigate the interaction or confounding effect of these demographic variable on the crude association.</p>
+</div>
+<div id="anova" class="section level3">
+<h3>ANOVA</h3>
+<p>In order to test whether there is association between drug use and BMI, which is a continuous variable, we perform a ANOVA test to test the hypothesis that <span class="math display">\[
+H_0：\text{the mean BMI of students are same across all drug use status}
+\]</span> <span class="math display">\[
+H_1: \text{At least two drug use status groups have different mean BMI}
+\]</span></p>
 </div>
 </div>
 <div id="bi-level" class="section level2">
@@ -2244,7 +2327,7 @@ All other Races
 </tr>
 </tbody>
 </table>
-<p>From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, it is the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible.</p>
+<p>From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, suggesting that the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible.</p>
 <p>Overall:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-19-1.png" width="960" /></p>
 <p>Stratified Analysis:</p>
@@ -3214,7 +3297,9 @@ All other Races
 </tbody>
 </table>
 <p>From table 11, we can see that all p-values are significantly small and the effect sizes are around 0.8, which means there is a strong association between drug use and smoking status. The association between drug use and smoking status is weaker among 12th Grade compared to other grades. Among race, All Other Races has the strongest association between drug use and smoking status, and Black or African American has the weakest association.</p>
+<p>Overall:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-32-1.png" width="960" /></p>
+<p>Stratified Analysis:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-33-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-34-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-35-1.png" width="960" /></p>
@@ -3456,7 +3541,9 @@ All other Races
 </tbody>
 </table>
 <p>From table 12, all p-values are significantly small and the overall effect size is as high as 0.9, which indicate that there is a very strong association between drug use and binge drinking. The association between drug use and binge drinking is stronger among 9th Grade compared to other grades, and is stronger among male compared to female. Among race, Black or African American has a relatively weak association between drug use and binge drinking compared to other classification of races.</p>
+<p>Overall:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-37-1.png" width="960" /></p>
+<p>Stratified Analysis:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-38-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-39-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-40-1.png" width="960" /></p>
@@ -3698,6 +3785,7 @@ All other Races
 </tbody>
 </table>
 <p>From table 13, all p-values are significantly small, and generally the effect size is around 0.4, which indicate that there is a strong association between drug use and seat belt use. The association between drug use and seat belt use is the strongest among 12th Grade compared to other grades, and is stronger among White compared to other races. As for gender, the association between drug use and seat belt use among male and female are very similar.</p>
+<p>Overall:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-42-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-43-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-44-1.png" width="960" /></p>
@@ -3940,7 +4028,9 @@ All other Races
 </tbody>
 </table>
 <p>From table 14, all p-values are significantly small, and the overall effect size is around 0.6, which means that there is a strong association between drug use and GPA. The association between drug use and GPA is the strongest among 11th Grade compared to other grades, and is the weakest among 10th Grade compared to other grades. Also, the association between drug use and GPA is stronger among female than male, and is stronger among students who are classified into all other races compared to students who are classified into other race groups.</p>
+<p>Overall:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-48-1.png" width="960" /></p>
+<p>Stratified Analysis:</p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-49-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-50-1.png" width="960" /></p>
 <p><img src="Data_Analysis_files/figure-html/unnamed-chunk-51-1.png" width="960" /></p>

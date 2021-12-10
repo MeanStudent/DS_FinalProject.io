@@ -7,7 +7,7 @@ output:
     code_folding: hide
 ---
 
-```{r message = FALSE}
+```{r message = FALSE, warning=FALSE}
 library(tidyverse)
 library(survey)
 library(viridis)
@@ -151,11 +151,11 @@ table1(~ drunk_driving + text_driving + carrying_weapon + suicide_attempt + quit
 
 
 
-## Hypothesis Testing with visualization of drug status comparison
+## Hypothesis Testing
 
 ### Chi-square Test
 
-For bi-level and multi-level categorical variables, we test the independence of two categorical variables, so we should use the R X C chi-square test with hypotheses that 
+For bi-level and multi-level categorical variables, we test the independence of two categorical variables, so we should use the R $\times$ C chi-square test with hypotheses that 
 
 $$
 H_0:\text{There is no association between drug use and the health-related variable of interest}
@@ -177,11 +177,24 @@ tibble(
   small_effect = c(0.10, 0.07, 0.06, 0.05, 0.04),
   medium_effect = c(0.3, 0.21, 0.17, 0.15, 0.13),
   large_effect = c(0.5, 0.35, 0.29, 0.25, 0.22)
-)
+) %>% 
+  kable("html") %>%
+  kable_styling(full_width = F)
 ```
 
 
 Besides the crude analysis which test the association for all observations in the data set, we also perform a stratified analysis over grade, gender and race to investigate the interaction or confounding effect of these demographic variable on the crude association. 
+
+### ANOVA
+
+In order to test whether there is association between drug use and BMI, which is a continuous variable, we perform a ANOVA test to test the hypothesis that
+$$
+H_0：\text{the mean BMI of students are same across all drug use status}
+$$
+$$
+H_1: \text{At least two drug use status groups have different mean BMI}
+$$
+
 
 ## Bi-level
 
@@ -516,7 +529,7 @@ The proportion bar plots do not demonstrate any dose-response relationship since
 test_of_association(input_name = "physical_fight", table_name = "Table 7: Drug Use Status vs Physical Fight")
 ```
 
-From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, it is the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible. 
+From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, suggesting that the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible. 
 
 Overall:
 
@@ -793,6 +806,7 @@ test_of_association(input_name = "smoking_status", table_name = "Table 11: Drug 
 
 From table 11, we can see that all p-values are significantly small and the effect sizes are around 0.8, which means there is a strong association between drug use and smoking status. The association between drug use and smoking status is weaker among 12th Grade compared to other grades. Among race, All Other Races has the strongest association between drug use and smoking status, and Black or African American has the weakest association.
 
+Overall:
 
 ```{r}
 yrbss_state_tidy_additional %>% 
@@ -807,6 +821,8 @@ yrbss_state_tidy_additional %>%
        y = "Proportion",
        fill = "Smoking Status") 
 ```
+
+Stratified Analysis:
 
 ```{r}
 # Stratified Analysis over Grade
@@ -870,6 +886,7 @@ test_of_association(input_name = "binge_drinking", table_name = "Table 12: Drug 
 
 From table 12, all p-values are significantly small and the overall effect size is as high as 0.9, which indicate that there is a very strong association between drug use and binge drinking. The association between drug use and binge drinking is stronger among 9th Grade compared to other grades, and is stronger among male compared to female. Among race, Black or African American has a relatively weak association between drug use and binge drinking compared to other classification of  races.
 
+Overall:
 
 ```{r}
 yrbss_state_tidy_additional %>% 
@@ -885,6 +902,7 @@ yrbss_state_tidy_additional %>%
        fill = "Binge Drinking")
 ```
 
+Stratified Analysis:
 
 ```{r}
 # Stratified Analysis over Grade
@@ -946,6 +964,7 @@ test_of_association(input_name = "seat_belt", table_name = "Table 13: Drug Use S
 
 From table 13, all p-values are significantly small,  and generally the effect size is around 0.4, which indicate that there is a strong association between drug use and seat belt use. The association between drug use and seat belt use is the strongest among 12th Grade compared to other grades, and is stronger among White compared to other races. As for gender, the association between drug use and seat belt use among male and female are very similar. 
 
+Overall:
 
 ```{r}
 yrbss_state_tidy_additional %>% 
@@ -1025,6 +1044,7 @@ test_of_association(yrbss_state_tidy_additional_grades_school, "grades_school", 
 
 From table 14, all p-values are significantly small, and the overall effect size is around 0.6, which means that there is a strong association between drug use and GPA. The association between drug use and GPA is the strongest among 11th Grade compared to other grades, and is the weakest among 10th Grade compared to other grades. Also, the association between drug use and GPA is stronger among female than male, and is stronger among students who are classified into all other races compared to students who are classified into other race groups.
 
+Overall:
 
 ```{r}
 yrbss_state_tidy_additional_grades_school %>% 
@@ -1039,6 +1059,8 @@ yrbss_state_tidy_additional_grades_school %>%
        y = "Proportion",
        fill = "GPA")
 ```
+
+Stratified Analysis:
 
 ```{r}
 # Stratified Analysis over Grade
@@ -1135,7 +1157,7 @@ ggplot(yrbss_state_tidy_additional,
   theme(
     axis.text.x = element_text(angle = 45, vjust = 0.5, hjust = 1),
     legend.position = "none") +
-  labs(title="smoke start age",x="drug use frequency"))
+  labs(title="smoke start age",x="drug use frequency")
 ```
 
 ### 15.Alcohol initial age
@@ -1209,7 +1231,7 @@ density_plot=
   geom_vline(data=BMI, aes(xintercept=mean(bmi), color=sex),
              linetype="dashed") + 
   facet_grid(. ~ drug_use_freq) +
-  labs(title = "density plot for BMI",x="drug use frequency"))
+  labs(title = "density plot for BMI",x="drug use frequency")
 
 one.way = 
   aov (bmi~drug_use_freq, data = BMI)

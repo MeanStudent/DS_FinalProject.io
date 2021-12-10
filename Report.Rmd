@@ -39,8 +39,6 @@ NCDAS(National Center for Drug Abuse Statistics) demonstrates the demographic su
 
 9. Is there any drug use difference on sex, grades, and race? 
 
-10. Can we anticipate the probability of subjects using drugs based on their health and risky behaviors?
-
 
 # Conclusion and Discussion
 
@@ -65,6 +63,8 @@ Although the mean starting age are relatively similar for each state, we found t
 
 
 Based on the statistical analysis and visualization in [Data Analysis](Data_Analysis.html), we have some important findings:
+
+![](images/report.jpg)
 
 ## Bi-level Risky Behaviors
 

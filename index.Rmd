@@ -7,7 +7,7 @@ output:
 ## Drug use and risky behavior 
 **Kaiyu He(kh3074), Xueqing Huang(xh2470), Yongzi Yu(yy3103), Ruiqi Yan(ry2417), Hao Xu(hx2328)**
 
-![](images/Head.jpg)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/74Ai7LXyEWs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Intro
 

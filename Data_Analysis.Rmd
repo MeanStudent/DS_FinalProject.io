@@ -529,7 +529,7 @@ The proportion bar plots do not demonstrate any dose-response relationship since
 test_of_association(input_name = "physical_fight", table_name = "Table 7: Drug Use Status vs Physical Fight")
 ```
 
-From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, suggesting that the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible. 
+From Table 7, we can see that all p-value are significantly small and the effect size are around 0.4, so the association between drug use status and physical fight is strong. The effect size over each stratum is very close to each other, so the interaction effect is negligible. 
 
 Overall:
 
@@ -593,7 +593,7 @@ The plots illustrate a positive relationship between drug use status and proport
 ```{r}
 test_of_association(input_name = "early_sex", table_name = "Table 8: Drug Use Status vs Early-Age Sexual Intercourse")
 ```
-From Table 8, all p-value are significantly small and the effect size are around 0.4, it shows that the association between drug use status and early age sex is strong. The effect size over each stratum is close to each other, so the interaction effect is negligible. 
+From Table 8, all p-value are significantly small and the effect size are around 0.4, implying that the association between drug use status and early age sex is strong. The effect size over each stratum is close to each other, so the interaction effect is negligible. 
 
 Overall:
 

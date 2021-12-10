@@ -22,9 +22,9 @@ navbar:
     - icon: fa-github fa-lg
       menu:
       - text: "Project Repo"
-      - href: https://github.com/ryan2417/drug_abuse_among_youth.github.io.git
+        href: https://github.com/ryan2417/drug_abuse_among_youth.github.io.git/
       - text: "Website Repo"
-      - href: https://github.com/MeanStudent/DS_FinalProject.io.git
+        href: https://github.com/MeanStudent/DS_FinalProject.io.git/
 output:
   html_document: 
     theme: journal
